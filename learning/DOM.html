@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Documune Object Model</title>
+    </head>
+    <body>
+        <button onclick="
+            subscribe();
+            "class="js-subscribe">Subscribe</button>
+        <script>
+            function subscribe() {
+                temp_var = document.querySelector('.js-subscribe').innerHTML;
+                if ( temp_var === 'Subscribe') {
+                    temp_var = 'Subscribed';
+                } else {
+                    temp_var = 'Subscribe';
+                }
+                document.querySelector('.js-subscribe').innerHTML = temp_var;
+            }
+        </script>
+    </body>
+</html>

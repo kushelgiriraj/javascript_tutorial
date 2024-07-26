@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Flip</title>
+    </head>
+    <body>
+        <button onclick="
+            let randomFlip = Math.random();
+            let result;
+            if (randomFlip <= 0.5) {
+                result = 'Heads'
+                console.log('Heads');
+            }  
+            else {
+                result = 'Tails'
+                console.log('Tails');
+            }
+            let userGuess = prompt('Guess the result: Heads or Tails?');
+            if (userGuess === null) {
+                alert('Guess was cancelled.');
+            } else if (userGuess.toLowerCase() === result.toLowerCase()) {
+                alert(`You guessed right! It is ${result}.`);
+            } else {
+                alert(`You guessed wrong. It is ${result}.`);
+            }
+        ">Flip th Coin</button>
+    </body>
+</html>

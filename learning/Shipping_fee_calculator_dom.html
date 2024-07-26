@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Shipping Fee</title>
+    </head>
+    <body>
+        <p>
+            Amazon Shipping Calulator
+        </p>
+        <p>
+            Orders under 40$ = +10$ shipping fee
+        </p>
+        <p>
+            Orders over 40$ = Free shipping
+        </p>
+        
+        <input type="number" placeholder="Cost of Order" id="orderCost" onkeydown="handleOnKeyDown(event);">
+        
+        <button onclick="calculate();">Calculate</button>
+        <p class="js-totalCost"></p>
+        
+        <script>
+            // Function to handle on(keydown to calculate total cost upon pressing enter key
+            function handleOnKeyDown(event) {
+                console.log(event.key);
+                if (event.key === 'Enter') {
+                    calculate();
+                }
+            }
+
+            function calculate() {
+                let totalCost = document.getElementById('orderCost').value;
+
+                // Check if the input value is empty or not a number
+                if (totalCost === '' || isNaN(totalCost)) {
+                    console.log('Enter a valid numeric value to calculate');
+                    alert('Enter a valid numeric value to calculate');
+                } else {
+                    // Convert the input value to a float
+                    totalCost = parseFloat(totalCost);
+
+                    // Check if the order cost is less than $40 and add $10 shipping fee
+                    if (totalCost < 40) {
+                        totalCost += 10;
+                    }
+
+                    // Display the total cost
+                    console.log(totalCost);
+                    document.querySelector('.js-totalCost').innerHTML = 'total cost is: ' + `$${totalCost.toFixed(2)}`;
+                }
+            }  
+        </script>
+    </body>
+</html>
